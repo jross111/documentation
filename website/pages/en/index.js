@@ -33,7 +33,7 @@ class HomeSplash extends React.Component {
 		const ProjectTitle = (props) => (
 			<h2 className='projectTitle'>
 				{props.title}
-				<small>{props.tagline}</small>
+				<h3>{props.tagline}</h3>
 			</h2>
 		);
 
@@ -57,10 +57,14 @@ class HomeSplash extends React.Component {
 			<SplashContainer>
 				<Logo img_src={`${baseUrl}img/headshot.png`} />
 				<div className='inner'>
-					<ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
+					<ProjectTitle
+						tagline={siteConfig.tagline}
+						title={siteConfig.title}
+						about={siteConfig.about}
+					/>
 					<PromoSection>
-						<Button href={docUrl('doc2.html')}>Knowledge Base</Button>
-						<Button href={docUrl('doc2.html')}>Blog</Button>
+						{/* <Button href={docUrl('doc2.html')}>Knowledge Base</Button>
+						<Button href={docUrl('doc2.html')}>Blog</Button> */}
 					</PromoSection>
 				</div>
 			</SplashContainer>
@@ -92,7 +96,6 @@ class Index extends React.Component {
 				className='productShowcaseSection paddingBottom'
 				style={{ textAlign: 'center' }}
 			>
-				<h2>About Me</h2>
 				<MarkdownBlock>
 					I'm a Software developer with a background in Classical Music. I enjoy
 					card games, cooking and Wikipedia rabbit holes.
@@ -100,42 +103,14 @@ class Index extends React.Component {
 			</div>
 		);
 
-		const Description = () => (
-			<Block background='dark'>
-				{[
-					{
-						content:
-							'This is another description of how this project is useful',
-						image: `${baseUrl}img/undraw_note_list.svg`,
-						imageAlign: 'right',
-						title: 'Description',
-					},
-				]}
-			</Block>
-		);
-
-		const LearnHow = () => (
-			<Block background='light'>
-				{[
-					{
-						content:
-							'Each new Docusaurus project has **randomly-generated** theme colors.',
-						image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
-						imageAlign: 'right',
-						title: 'Randomly Generated Theme Colors',
-					},
-				]}
-			</Block>
-		);
-
 		const Features = () => (
 			<Block layout='fourColumn'>
 				{[
 					{
-						content: 'This is the content of my feature',
+						content: 'Knowledgebase',
 						image: `${baseUrl}img/undraw_react.svg`,
 						imageAlign: 'top',
-						title: 'Feature One',
+						title: 'Knowledgebase',
 					},
 					{
 						content: 'The content of my second feature',
@@ -151,12 +126,8 @@ class Index extends React.Component {
 			<div>
 				<HomeSplash siteConfig={siteConfig} language={language} />
 				<div className='mainContainer'>
-					<FeatureCallout />
-					<Features />
-					{/* <LearnHow /> */}
-					{/* <TryOut /> */}
-					<Description />
-					{/* <Showcase /> */}
+					{/* <FeatureCallout /> */}
+					<Features></Features>
 				</div>
 			</div>
 		);
