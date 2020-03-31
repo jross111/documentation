@@ -1,6 +1,6 @@
 ---
 id: doc1
-title: Resume
+title: Something Else
 ---
 
 Check the [documentation](https://docusaurus.io) for how to use Docusaurus.

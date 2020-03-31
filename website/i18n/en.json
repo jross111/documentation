@@ -5,8 +5,11 @@
     "previous": "Previous",
     "tagline": "Software Developer",
     "docs": {
+      "ajax": {
+        "title": "AJAX"
+      },
       "doc1": {
-        "title": "Resume"
+        "title": "Something Else"
       },
       "doc2": {
         "title": "document number 2"
@@ -15,10 +18,22 @@
         "title": "This is document number 3"
       },
       "doc4": {
+        "title": "Javascript Loops"
+      },
+      "exdoc4": {
         "title": "Other Document"
       },
-      "doc5": {
+      "exdoc5": {
         "title": "Fifth Document"
+      },
+      "functionaljs": {
+        "title": "Funcional JS"
+      },
+      "jsmethods": {
+        "title": "jsmethods"
+      },
+      "resume": {
+        "title": "Resume"
       }
     },
     "links": {
@@ -26,10 +41,8 @@
       "Blog": "Blog"
     },
     "categories": {
-      "JavaScript": "JavaScript",
-      "Node": "Node",
-      "React": "React",
-      "First Category": "First Category"
+      "Javascript": "Javascript",
+      "Frameworks": "Frameworks"
     }
   },
   "pages-strings": {

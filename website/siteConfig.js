@@ -40,8 +40,9 @@ const siteConfig = {
 
 	// For no header links in the top nav bar -> headerLinks: [],
 	headerLinks: [
-		{ doc: 'doc2', label: 'Knowledge Base' },
+		{ doc: 'doc4', label: 'Knowledge Base' },
 		{ blog: true, label: 'Blog' },
+		{ search: true },
 		// { doc: 'resume', label: 'Resume' },
 	],
 
@@ -49,7 +50,7 @@ const siteConfig = {
 	// users,
 
 	/* path to images for header/footer */
-	headerIcon: 'img/headshot.png',
+	// headerIcon: 'img/headshot.png',
 	footerIcon: 'img/headshot.png',
 	favicon: 'img/headshot.png',
 
@@ -71,7 +72,7 @@ const siteConfig = {
 
 	highlight: {
 		// Highlight.js theme to use for syntax highlighting in code blocks.
-		theme: 'default',
+		theme: 'monokai-sublime',
 	},
 
 	// Add custom scripts here that would be placed in <script> tags.

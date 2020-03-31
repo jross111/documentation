@@ -1,5 +1,5 @@
 ---
-id: doc5
+id: exdoc5
 title: Fifth Document
 ---
 

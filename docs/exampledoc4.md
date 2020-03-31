@@ -1,5 +1,5 @@
 ---
-id: doc4
+id: exdoc4
 title: Other Document
 ---
 
