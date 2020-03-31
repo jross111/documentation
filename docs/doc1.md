@@ -1,7 +1,6 @@
 ---
 id: doc1
-title: Latin-ish
-sidebar_label: Example Page
+title: Resume
 ---
 
 Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
@@ -27,3 +26,28 @@ Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculu
 ## Phasellus
 
 Phasellus pulvinar ex id commodo imperdiet. Praesent odio nibh, sollicitudin sit amet faucibus id, placerat at metus. Donec vitae eros vitae tortor hendrerit finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae purus dolor. Duis suscipit ac nulla et finibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquam massa, id bibendum orci velit quis magna. Ut volutpat nulla nunc, sed interdum magna condimentum non. Sed urna metus, scelerisque vitae consectetur a, feugiat quis magna. Donec dignissim ornare nisl, eget tempor risus malesuada quis.
+
+## Loops
+
+This is all about loops. Hi.
+
+### Map
+
+Sometimes maps work.
+
+#### Hi hi
+
+finibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquam
+
+##### hhi 23434
+
+finibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquamfinibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquam
+
+I need to fill out paperwork to withdraw? If so, I'd like to get that out of the way now to avoid delays in the future if I win..
+
+The following high-resolution copies have to be sent in color to documents@intertops.ag:
+• Front and back of your Photo ID (e.g. Driver’s License or Passport);
+• Proof of address issued during the last 2 months (e.g. recent utility bill, bank statement, etc.);
+Once you attached all of the above, make sure you write “Account verification for <your username>” in the email subject line.
+
+We’ll contact you as soon as processing is completed (it can take 5 full business days).

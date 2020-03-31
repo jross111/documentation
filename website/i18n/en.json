@@ -3,11 +3,10 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "A website for testing",
+    "tagline": "Software Developer",
     "docs": {
       "doc1": {
-        "title": "Latin-ish",
-        "sidebar_label": "Example Page"
+        "title": "Resume"
       },
       "doc2": {
         "title": "document number 2"
@@ -23,9 +22,7 @@
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API",
-      "Help": "Help",
+      "Knowledge Base": "Knowledge Base",
       "Blog": "Blog"
     },
     "categories": {

@@ -1,6 +1,8 @@
-import React from 'react';
-// const CompLibrary = require('../../core/CompLibrary.js');
-import CompLibrary from '../../core/CompLibrary.js';
+// import React from 'react';
+
+const React = require('react');
+const CompLibrary = require('../../core/CompLibrary.js');
+// import CompLibrary from '../../core/CompLibrary.js';
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
@@ -90,25 +92,12 @@ class Index extends React.Component {
 				className='productShowcaseSection paddingBottom'
 				style={{ textAlign: 'center' }}
 			>
-				<h2>Feature Callout</h2>
-				<MarkdownBlock>These are features of this project</MarkdownBlock>
+				<h2>About Me</h2>
+				<MarkdownBlock>
+					I'm a Software developer with a background in Classical Music. I enjoy
+					card games, cooking and Wikipedia rabbit holes.
+				</MarkdownBlock>
 			</div>
-		);
-
-		const TryOut = () => (
-			<Block id='try'>
-				{[
-					{
-						content:
-							'To make your landing page more attractive, use illustrations! Check out ' +
-							'[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-							'The illustrations you see on this page are from unDraw.',
-						image: `${baseUrl}img/undraw_code_review.svg`,
-						imageAlign: 'left',
-						title: 'Wonderful SVG Illustrations',
-					},
-				]}
-			</Block>
 		);
 
 		const Description = () => (
@@ -158,46 +147,16 @@ class Index extends React.Component {
 			</Block>
 		);
 
-		const Showcase = () => {
-			if ((siteConfig.users || []).length === 0) {
-				return null;
-			}
-
-			const showcase = siteConfig.users
-				.filter((user) => user.pinned)
-				.map((user) => (
-					<a href={user.infoLink} key={user.infoLink}>
-						<img src={user.image} alt={user.caption} title={user.caption} />
-					</a>
-				));
-
-			const pageUrl = (page) =>
-				baseUrl + (language ? `${language}/` : '') + page;
-
-			return (
-				<div className='productShowcaseSection paddingBottom'>
-					<h2>Who is Using This?</h2>
-					<p>This project is used by all these people</p>
-					<div className='logos'>{showcase}</div>
-					<div className='more-users'>
-						<a className='button' href={pageUrl('users.html')}>
-							More {siteConfig.title} Users
-						</a>
-					</div>
-				</div>
-			);
-		};
-
 		return (
 			<div>
 				<HomeSplash siteConfig={siteConfig} language={language} />
 				<div className='mainContainer'>
-					<Features />
 					<FeatureCallout />
-					<LearnHow />
-					<TryOut />
+					<Features />
+					{/* <LearnHow /> */}
+					{/* <TryOut /> */}
 					<Description />
-					<Showcase />
+					{/* <Showcase /> */}
 				</div>
 			</div>
 		);
