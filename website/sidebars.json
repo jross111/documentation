@@ -1,8 +1,8 @@
 {
 	"docs": {
-		"Resume": ["doc1"],
-		"First Category": ["doc2"],
-		"Second Category": ["doc3"]
+		"JavaScript": ["javascript-loops.md"],
+		"Node": ["doc2"],
+		"React": ["doc3"]
 	},
 	"docs-other": {
 		"First Category": ["doc4", "doc5"]

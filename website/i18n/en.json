@@ -26,9 +26,10 @@
       "Blog": "Blog"
     },
     "categories": {
-      "Docusaurus": "Docusaurus",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "JavaScript": "JavaScript",
+      "Node": "Node",
+      "React": "React",
+      "First Category": "First Category"
     }
   },
   "pages-strings": {
