@@ -8,6 +8,9 @@
       "ajax": {
         "title": "AJAX"
       },
+      "d3": {
+        "title": "D3"
+      },
       "doc1": {
         "title": "Something Else"
       },
@@ -29,8 +32,8 @@
       "functionaljs": {
         "title": "Funcional JS"
       },
-      "jsmethods": {
-        "title": "jsmethods"
+      "js-methods": {
+        "title": "Methods"
       },
       "resume": {
         "title": "Resume"

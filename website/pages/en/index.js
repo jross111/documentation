@@ -63,8 +63,16 @@ class HomeSplash extends React.Component {
 						about={siteConfig.about}
 					/>
 					<PromoSection>
-						{/* <Button href={docUrl('doc2.html')}>Knowledge Base</Button>
-						<Button href={docUrl('doc2.html')}>Blog</Button> */}
+						<i className='fab fa-github-square fa-3x' />
+						<i className='devicon-javascript-plain colored' />
+						<i className='devicon-react-original-wordmark colored' />
+						<i className='devicon-vuejs-plain-wordmark colored' />
+						<i className='devicon-bootstrap-plain-wordmark colored' />
+						<i className='fab fa-react fa-3x fa-spin' />
+						<i className='fab fa-js fa-3x' />
+						<i className='fab fa-github-square fa-3x' />
+						<i className='fab fa-node fa-3x' />
+						<i className='fab fa-github-square fa-3x' />
 					</PromoSection>
 				</div>
 			</SplashContainer>

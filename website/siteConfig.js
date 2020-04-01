@@ -75,8 +75,18 @@ const siteConfig = {
 		theme: 'monokai-sublime',
 	},
 
+	//External style sheets
+
+	stylesheets: [
+		'https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css',
+	],
+
 	// Add custom scripts here that would be placed in <script> tags.
-	scripts: ['https://buttons.github.io/buttons.js'],
+	scripts: [
+		'https://buttons.github.io/buttons.js',
+		'https://kit.fontawesome.com/dfbba71e17.js',
+		'https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css',
+	],
 
 	// On page navigation for the current documentation page.
 	onPageNav: 'separate',
