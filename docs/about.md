@@ -14,5 +14,3 @@ Hi! Here's some stuff about me being a software developer! I live in New York Ci
 
 This is what my face looks like!
 ![my face](assets/headshot.png)
-
-:octocat:
