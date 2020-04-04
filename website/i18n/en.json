@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "Software Developer",
     "docs": {
+      "about": {
+        "title": "About Me"
+      },
       "ajax": {
         "title": "AJAX"
       },
@@ -30,22 +33,38 @@
         "title": "Fifth Document"
       },
       "functionaljs": {
-        "title": "Funcional JS"
+        "title": "Funcional"
       },
       "js-methods": {
         "title": "Methods"
+      },
+      "node-packages": {
+        "title": "node-packages"
+      },
+      "node-js": {
+        "title": "NodeJS"
+      },
+      "projects": {
+        "title": "Projects"
+      },
+      "react": {
+        "title": "React"
       },
       "resume": {
         "title": "Resume"
       }
     },
     "links": {
-      "Knowledge Base": "Knowledge Base",
+      "About Me": "About Me",
       "Blog": "Blog"
     },
     "categories": {
+      "About Me": "About Me",
       "Javascript": "Javascript",
-      "Frameworks": "Frameworks"
+      "React": "React",
+      "Node": "Node",
+      "Database Stuff": "Database Stuff",
+      "Other": "Other"
     }
   },
   "pages-strings": {
