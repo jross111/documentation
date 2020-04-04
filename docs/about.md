@@ -3,9 +3,7 @@ id: about
 title: About Me
 ---
 
-![my face](assets/headshot.png)
-
-<div align="center>
+<div align="center">
 <a href="https://github.com/jross111" target="_blank"><i class='fab fa-github fa-3x'></i></a>
 <a href="https://www.linkedin.com/in/jamesross221/" target="_blank"><i class='fab fa-linkedin fa-3x'></i></a>
 </div>

@@ -1,0 +1,446 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>D3 · James Ross</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [`Add Document Elements`](#add-document-elements)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="D3 · James Ross"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="- [`Add Document Elements`](#add-document-elements)"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/headshot.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="James Ross Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="James Ross Blog RSS Feed"/><link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://kit.fontawesome.com/dfbba71e17.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">James Ross</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/about" target="_self">About Me</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Other</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">About Me<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/about">About Me</a></li><li class="navListItem"><a class="navItem" href="/docs/resume">Resume</a></li><li class="navListItem"><a class="navItem" href="/docs/projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Javascript<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/doc4">Javascript Loops</a></li><li class="navListItem"><a class="navItem" href="/docs/ajax">AJAX</a></li><li class="navListItem"><a class="navItem" href="/docs/functionaljs">Funcional</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">React<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/react">React</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/node-packages">Node Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/node-js">NodeJS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Other<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/d3">D3</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">D3</h1></header><article><div><span><ul>
+<li><a href="#add-document-elements"><code>Add Document Elements</code></a></li>
+<li><a href="#select-a-group-of-elements"><code>Select a group of elements</code></a></li>
+<li><a href="#work-with-data"><code>Work with Data</code></a></li>
+<li><a href="#dynamic-data"><code>Dynamic Data</code></a></li>
+<li><a href="#inline-styling-for-elements"><code>Inline Styling for Elements</code></a></li>
+<li><a href="#update-the-height-of-an-element-dynamically"><code>Update the Height of an Element Dynamically</code></a></li>
+<li><a href="#presentation-of-a-bar-chart"><code>Presentation of a Bar Chart</code></a></li>
+<li><a href="#scalable-vector-graphics-svg"><code>Scalable Vector Graphics (SVG)</code></a></li>
+<li><a href="#displayingsvgshapes"><code>Displaying</code>svg<code>shapes</code></a></li>
+<li><a href="#bar-charts-rect--div"><code>Bar Charts: rect &amp; div</code></a></li>
+<li><a href="#setting-the-coordinates-for-each-bar"><code>Setting the coordinates for each bar</code></a></li>
+<li><a href="#labels"><code>Labels</code></a></li>
+<li><a href="#styling-labels"><code>Styling Labels</code></a></li>
+<li><a href="#add-a-hover-effect"><code>Add a hover effect</code></a></li>
+<li><a href="#add-tooltips"><code>Add tooltips</code></a></li>
+<li><a href="#scatterplots"><code>Scatterplots</code></a></li>
+<li><a href="#linear-scale"><code>Linear Scale</code></a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="add-document-elements"></a><a href="#add-document-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Add Document Elements</code></h3>
+<p>The <code>select()</code> method selects one element from the document. It takes an argument for the name of the element you want and returns an HTML node for the first element in the document that matches the name.</p>
+<p>The <code>append()</code> method takes an argument for the element you want to add to the document. It appends an HTML node to a selected item, and returns a handle to that node.</p>
+<p>The <code>text()</code> method either sets the text of the selected node, or gets the current text. To set the value, you pass a string as an argument inside the parentheses of the method.</p>
+<p>The following will render an <code>h1</code> tag with &quot;hello world&quot;.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        d3.select(<span class="hljs-string">'body'</span>).append(<span class="hljs-string">'h1'</span>).text(<span class="hljs-string">'Learning D3'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="select-a-group-of-elements"></a><a href="#select-a-group-of-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Select a group of elements</code></h3>
+<p><code>selectAll()</code> returns an array of HTML nodes for all the items in the document that match the input string.</p>
+<p>The following will select all <code>li</code> items and change the text to &quot;list items&quot;.</p>
+<pre><code class="hljs css language-javascript">d3.selectAll(<span class="hljs-string">'li'</span>).text(<span class="hljs-string">'list item'</span>);
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="work-with-data"></a><a href="#work-with-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Work with Data</code></h3>
+<p>The <code>data()</code> method makes D3 aware of a data set, accepting the data itself as an argument. The <code>enter()</code> method helps create a new element in the document for each piece of data within the set. If there are fewer elements than pieces of data already on the dom, <code>enter()</code> will creat more.</p>
+<p>The following example will use an array of numbers, stored in the const <code>dataset</code> as our data set. We will select the body, then all <code>h2</code> tags within the body (there are none, yet). Then take the data in and create a new <code>h2</code> element so that there is one for each piece of data.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+        d3.select(<span class="hljs-string">'body'</span>)
+            .selectAll(<span class="hljs-string">'h2'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'h2'</span>)
+            .text(<span class="hljs-string">'New Title'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="dynamic-data"></a><a href="#dynamic-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Dynamic Data</code></h3>
+<p>The above example simply displays &quot;New Title&quot; for each piece of data. In order to display the data we can use a call back within the <code>.text()</code> method. The following will display &quot;USD 12&quot; for the first element, and so on.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+        d3.select(<span class="hljs-string">'body'</span>)
+            .selectAll(<span class="hljs-string">'h2'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'h2'</span>)
+            .text(<span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d + <span class="hljs-string">' USD'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="inline-styling-for-elements"></a><a href="#inline-styling-for-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Inline Styling for Elements</code></h3>
+<p>D3 lets you add inline CSS syles on dynamic elements with <code>style()</code> method. This method takes a comma-seperate key-value pair as an argument. In the example below we will add a font-family of veranda to our previous examples.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+        d3.select(<span class="hljs-string">'body'</span>)
+            .selectAll(<span class="hljs-string">'h2'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'h2'</span>)
+            .text(<span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d + <span class="hljs-string">' USD'</span>)
+            .style(<span class="hljs-string">'font-family'</span>, <span class="hljs-string">'verdana'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="update-the-height-of-an-element-dynamically"></a><a href="#update-the-height-of-an-element-dynamically" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Update the Height of an Element Dynamically</code></h3>
+<p>We can create a simple bar chart by updating the css height value of each element using a call back.</p>
+<p>The following will create a simple bar chart, with each piece of data in <code>dataset</code> representing the height of that bar.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.bar</span> {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">25px</span>;
+        <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+        <span class="hljs-attribute">display</span>: inline-block;
+        <span class="hljs-attribute">background-color</span>: blue;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+
+        d3.select(<span class="hljs-string">'body'</span>)
+            .selectAll(<span class="hljs-string">'div'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'div'</span>)
+            .attr(<span class="hljs-string">'class'</span>, <span class="hljs-string">'bar'</span>)
+            .style(<span class="hljs-string">'height'</span>, (d) =&gt; d);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="images/barchart.png" alt="bar chart"></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="presentation-of-a-bar-chart"></a><a href="#presentation-of-a-bar-chart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Presentation of a Bar Chart</code></h3>
+<p>We make the barchart more readable by multiplying the height by 10 and adding a 2px margin to each element.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.bar</span> {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">25px</span>;
+        <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+        <span class="hljs-attribute">display</span>: inline-block;
+        <span class="hljs-attribute">background-color</span>: blue;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+
+        d3.select(<span class="hljs-string">'body'</span>)
+            .selectAll(<span class="hljs-string">'div'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'div'</span>)
+            .attr(<span class="hljs-string">'class'</span>, <span class="hljs-string">'bar'</span>)
+            .style(<span class="hljs-string">'height'</span>, (d) =&gt; d);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="/docs/assets/styled_barchart.png" alt="alt-text"></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="scalable-vector-graphics-svg"></a><a href="#scalable-vector-graphics-svg" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Scalable Vector Graphics (SVG)</code></h3>
+<p>SVG shapes for a web page must go within HTML <code>svg</code> tags. They are scalable shapes.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="displayingsvgshapes"></a><a href="#displayingsvgshapes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Displaying</code>svg<code>shapes</code></h3>
+<p>When you place a shape into the <code>svg</code> area, you can specify where it goes with <code>x</code> and <code>y</code> coordinates.</p>
+<p>The origin point of (0, 0) is in the upper-left corner. <strong>Positive values for x push the shape to the right, and positive values for y push the shape down from the origin point.</strong></p>
+<p>An <code>svg</code> <code>rect</code> (rectangle) has four attributes. There are the <code>x</code> and <code>y</code> coordinates for where it is placed in the <code>svg</code> area. It also has a <code>height</code> and <code>width</code> to specify the size.</p>
+<p>The following will append a <code>rect</code> with <code>width</code>, <code>height</code>, <code>x</code> and <code>y</code> attributes to the <code>svg</code> element.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">100</span>;
+
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h)
+            .append(<span class="hljs-string">'rect'</span>)
+            .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+            .attr(<span class="hljs-string">'height'</span>, <span class="hljs-number">100</span>)
+            .attr(<span class="hljs-string">'x'</span>, <span class="hljs-number">0</span>)
+            .attr(<span class="hljs-string">'y'</span>, <span class="hljs-number">0</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="bar-charts-rect--div"></a><a href="#bar-charts-rect--div" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Bar Charts: rect &amp; div</code></h3>
+<ul>
+<li><code>div</code> must be appended to the <code>body</code> html elemend.</li>
+<li><code>rect</code> must be appended to an <code>svg</code> element.</li>
+<li><code>div</code> does not need an <code>x, y</code> location, unlike <code>div</code></li>
+</ul>
+<p>Example of placing a <code>rect</code> (this will display 9 verticle bars on top of each other):</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">100</span>;
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h);
+
+        svg
+            .selectAll(<span class="hljs-string">'rect'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'rect'</span>)
+            .attr(<span class="hljs-string">'x'</span>, <span class="hljs-number">0</span>)
+            .attr(<span class="hljs-string">'y'</span>, <span class="hljs-number">0</span>)
+            .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+            .attr(<span class="hljs-string">'height'</span>, <span class="hljs-number">100</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="setting-the-coordinates-for-each-bar"></a><a href="#setting-the-coordinates-for-each-bar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Setting the coordinates for each bar</code></h3>
+<p>Without defining the <code>x</code> and <code>y</code> coordinates of multiple <code>svg</code> shapes, they will all appear at (0, 0)....on top of one another.</p>
+<p>For a bar chart, all of the bars should sit on the same vertical level, which means the <code>y</code> value stays the same (at 0) for all bars. The <code>x</code> value, however, needs to change as you add new bars. Remember that larger <code>x</code> values push items farther to the right. As you go through the array elements in <code>dataset</code>, the <code>x</code> value should increase.</p>
+<p>The <code>attr()</code> method in D3 accepts a callback function to dynamically set that attribute. The callback function takes two arguments, one for the data point itself (usually <code>d</code>) and one for the index of the data point in the <code>array</code>. The second argument for the index is optional. Here's the format:</p>
+<pre><code class="hljs css language-javascript">selection.attr(<span class="hljs-string">'property'</span>, (d, i) =&gt; {
+    <span class="hljs-comment">/*
+     * d is the data point value
+     * i is the index of the data point in the array
+     */</span>
+});
+</code></pre>
+<p>This example takes the previous example and spreads out all the bars and makes the <code>height</code> equal to 3 times the data piece value.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">100</span>;
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h);
+        svg
+            .selectAll(<span class="hljs-string">'rect'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'rect'</span>)
+            .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">26</span>)
+            .attr(<span class="hljs-string">'y'</span>, <span class="hljs-number">0</span>)
+            .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+            .attr(<span class="hljs-string">'height'</span>, (d, i) =&gt; d * <span class="hljs-number">3</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="labels"></a><a href="#labels" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Labels</code></h3>
+<p>D3 lets you label a graph element, such as a bar, using the SVG <code>text</code> element.
+A <code>text</code> element needs to have <code>x</code> and <code>y</code> attributes, to place it on the SVG canvas. We can set the values the same way we did with the <code>rect</code>. In the below example, the <code>y</code> element will be set 3 units above the element.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">100</span>;
+
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h);
+
+        svg
+            .selectAll(<span class="hljs-string">'rect'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'rect'</span>)
+            .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">30</span>)
+            .attr(<span class="hljs-string">'y'</span>, (d, i) =&gt; h - <span class="hljs-number">3</span> * d)
+            .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+            .attr(<span class="hljs-string">'height'</span>, (d, i) =&gt; <span class="hljs-number">3</span> * d)
+            .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'navy'</span>);
+
+        svg
+            .selectAll(<span class="hljs-string">'text'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'text'</span>)
+            .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">30</span>)
+            .attr(<span class="hljs-string">'y'</span>, (d, i) =&gt; h - <span class="hljs-number">3</span> * d - <span class="hljs-number">3</span>)
+            .text(<span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="/docs/assets/graphwithlabels.png" alt="alt-text"></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="styling-labels"></a><a href="#styling-labels" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Styling Labels</code></h3>
+<p>We can change the style of the labels the same way we styled the <code>rects</code> earlier.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">const</span> dataset = [<span class="hljs-number">12</span>, <span class="hljs-number">31</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">25</span>, <span class="hljs-number">18</span>, <span class="hljs-number">29</span>, <span class="hljs-number">14</span>, <span class="hljs-number">9</span>];
+
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">100</span>;
+
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h);
+
+        svg
+            .selectAll(<span class="hljs-string">'rect'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'rect'</span>)
+            .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">30</span>)
+            .attr(<span class="hljs-string">'y'</span>, (d, i) =&gt; h - <span class="hljs-number">3</span> * d)
+            .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+            .attr(<span class="hljs-string">'height'</span>, (d, i) =&gt; d * <span class="hljs-number">3</span>)
+            .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'navy'</span>);
+
+        svg
+            .selectAll(<span class="hljs-string">'text'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'text'</span>)
+            .text(<span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d)
+            .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">30</span>)
+            .attr(<span class="hljs-string">'y'</span>, (d, i) =&gt; h - <span class="hljs-number">3</span> * d - <span class="hljs-number">3</span>)
+            .attr(<span class="hljs-string">'font-size'</span>, <span class="hljs-string">'25px'</span>)
+            .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'red'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="/docs/assets/styled_labels.png" alt="alt-text"></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="add-a-hover-effect"></a><a href="#add-a-hover-effect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Add a hover effect</code></h3>
+<p>.text(function(d, i) { return &quot;My color is &quot; + colors(i); })
+.text(function(d, i) { return &quot;My color is &quot; + colors(i); })he following css style:
+.text(function(d, i) { return &quot;My color is &quot; + colors(i); })</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-class">.bar</span><span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">fill</span>: brown;
+}
+</code></pre>
+<p>Then applying the <code>class</code> of <code>bar</code> to the <code>rect</code>:</p>
+<pre><code class="hljs css language-javascript">.attr(<span class="hljs-string">"class"</span>, <span class="hljs-string">"bar"</span>)
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="add-tooltips"></a><a href="#add-tooltips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Add tooltips</code></h3>
+<p>You can add a tooltip to each bar by appending a <code>title</code> element to the <code>rect</code>, then using a callback function in the <code>.text()</code> method.</p>
+<pre><code class="hljs css language-javascript">svg
+    .selectAll(<span class="hljs-string">'rect'</span>)
+    .data(dataset)
+    .enter()
+    .append(<span class="hljs-string">'rect'</span>)
+    .attr(<span class="hljs-string">'x'</span>, (d, i) =&gt; i * <span class="hljs-number">30</span>)
+    .attr(<span class="hljs-string">'y'</span>, (d, i) =&gt; h - <span class="hljs-number">3</span> * d)
+    .attr(<span class="hljs-string">'width'</span>, <span class="hljs-number">25</span>)
+    .attr(<span class="hljs-string">'height'</span>, (d, i) =&gt; d * <span class="hljs-number">3</span>)
+    .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'navy'</span>)
+    .attr(<span class="hljs-string">'class'</span>, <span class="hljs-string">'bar'</span>)
+    .append(<span class="hljs-string">'title'</span>) <span class="hljs-comment">// &lt;-- tool tip</span>
+    .text(<span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d);
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="scatterplots"></a><a href="#scatterplots" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Scatterplots</code></h3>
+<p>A scatter plot is another type of visualization. It usually uses circles to map data points, which have two values each. These values tie to the <code>x</code> and <code>y</code> axes, and are used to position the circle in the visualization.</p>
+<p>SVG has a <code>circle</code> tag to create the circle shape. It works a lot like the <code>rect</code> elements you used for the bar chart.</p>
+<p>A <code>circle</code> in SVG has three main attributes. The <code>cx</code> and <code>cy</code> attributes are the coordinates. They tell D3 where to position the center of the shape on the SVG canvas. The radius (<code>r</code> attribute) gives the size of the circle.</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">const</span> dataset = [
+            [<span class="hljs-number">34</span>, <span class="hljs-number">78</span>],
+            [<span class="hljs-number">109</span>, <span class="hljs-number">280</span>],
+            [<span class="hljs-number">310</span>, <span class="hljs-number">120</span>],
+            [<span class="hljs-number">79</span>, <span class="hljs-number">411</span>],
+            [<span class="hljs-number">420</span>, <span class="hljs-number">220</span>],
+            [<span class="hljs-number">233</span>, <span class="hljs-number">145</span>],
+            [<span class="hljs-number">333</span>, <span class="hljs-number">96</span>],
+            [<span class="hljs-number">222</span>, <span class="hljs-number">333</span>],
+            [<span class="hljs-number">78</span>, <span class="hljs-number">320</span>],
+            [<span class="hljs-number">21</span>, <span class="hljs-number">123</span>],
+        ];
+
+        <span class="hljs-keyword">const</span> w = <span class="hljs-number">500</span>;
+        <span class="hljs-keyword">const</span> h = <span class="hljs-number">500</span>;
+
+        <span class="hljs-keyword">const</span> svg = d3
+            .select(<span class="hljs-string">'body'</span>)
+            .append(<span class="hljs-string">'svg'</span>)
+            .attr(<span class="hljs-string">'width'</span>, w)
+            .attr(<span class="hljs-string">'height'</span>, h);
+
+        svg
+            .selectAll(<span class="hljs-string">'circle'</span>)
+            .data(dataset)
+            .enter()
+            .append(<span class="hljs-string">'circle'</span>)
+            .attr(<span class="hljs-string">'cx'</span>, (d, i) =&gt; d[<span class="hljs-number">0</span>])
+            .attr(<span class="hljs-string">'cy'</span>, (d, i) =&gt; h - d[<span class="hljs-number">1</span>])
+            .attr(<span class="hljs-string">'r'</span>, <span class="hljs-number">5</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<p><img src="/docs/assets/scatter.png" alt="alt-text"></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="linear-scale"></a><a href="#linear-scale" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Linear Scale</code></h3>
+<p><code>Scales</code> are functions that determine how to map data points onto an SVG canvas. If a particular piece of data is too big to fit, it will reduce the scale of all other objects so that it does.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> scale = d3.scaleLinear();
+</code></pre>
+<hr>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/4/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/node-js"><span class="arrow-prev">← </span><span class="function-name-prevnext">NodeJS</span></a><a class="docs-next button" href="/docs/Docusaurus"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 James Ross</section></footer></div></body></html>

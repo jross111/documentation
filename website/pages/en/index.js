@@ -62,18 +62,17 @@ class HomeSplash extends React.Component {
 						title={siteConfig.title}
 						about={siteConfig.about}
 					/>
+
 					<PromoSection>
-						<i className='fab fa-github-square fa-3x' />
-						<i className='devicon-javascript-plain colored' />
-						<i className='devicon-react-original-wordmark colored' />
-						<i className='devicon-vuejs-plain-wordmark colored' />
-						<i className='devicon-bootstrap-plain-wordmark colored' />
 						<i className='fab fa-react fa-3x fa-spin' />
 						<i className='fab fa-js fa-3x' />
-						<i className='fab fa-github-square fa-3x' />
 						<i className='fab fa-node fa-3x' />
-						<i className='fab fa-github-square fa-3x' />
 					</PromoSection>
+					<h3>
+						<a className='button' href='docs/about'>
+							Learn More
+						</a>
+					</h3>
 				</div>
 			</SplashContainer>
 		);
@@ -133,10 +132,7 @@ class Index extends React.Component {
 		return (
 			<div>
 				<HomeSplash siteConfig={siteConfig} language={language} />
-				<div className='mainContainer'>
-					{/* <FeatureCallout /> */}
-					<Features></Features>
-				</div>
+				<div className='mainContainer'>{/* <Features></Features> */}</div>
 			</div>
 		);
 	}

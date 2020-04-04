@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>AJAX · James Ross</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Wait for page to load"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="AJAX · James Ross"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## Wait for page to load"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/headshot.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="James Ross Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="James Ross Blog RSS Feed"/><link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://kit.fontawesome.com/dfbba71e17.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">James Ross</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/about" target="_self">About Me</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">About Me<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/about">About Me</a></li><li class="navListItem"><a class="navItem" href="/docs/resume">Resume</a></li><li class="navListItem"><a class="navItem" href="/docs/projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Javascript<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/doc4">Javascript Loops</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ajax">AJAX</a></li><li class="navListItem"><a class="navItem" href="/docs/functionaljs">Funcional</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">React<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/react">React</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/node-packages">Node Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/node-js">NodeJS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Other<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/d3">D3</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">AJAX</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="wait-for-page-to-load"></a><a href="#wait-for-page-to-load" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wait for page to load</h2>
+<p><code>DOMContentLoaded</code> can be attached to the top level of the DOM (the <code>document</code>) to ensure that any javascript will only excecute after the page has loaded:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="handle-click-events"></a><a href="#handle-click-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handle Click Events</h2>
+<p>You can implement event handlers that go inside of the <code>DOMContentLoaded</code> function. You can implement an <code>onclick</code> event handler which triggers when the user clicks on the element with id <code>getMessage</code>, by adding the following code:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'getMessage'</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{};
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-text-with-click-events"></a><a href="#change-text-with-click-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change Text with click Events</h2>
+<p>After selecting which button is clicked (using the id), we can ad a function within the <code>onclick</code> to decide which element(s) are affected and how.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'getMessage'</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'message'</span>)[<span class="hljs-number">0</span>].textContent =
+            <span class="hljs-string">'Here is the message'</span>;
+    };
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-json-with-the-javascript-xmlhttprequest-method"></a><a href="#get-json-with-the-javascript-xmlhttprequest-method" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get <code>JSON</code> with the JavaScript <code>XMLHttpRequest</code> Method</h2>
+<p>JSON transmitted by APIs are sent as <code>bytes</code>, and your application receives it as a <code>string</code>. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The <code>JSON.parse</code> method parses the string and constructs the JavaScript object described by it.</p>
+<p>The JavaScript <code>XMLHttpRequest</code> object has a number of properties and methods that are used to transfer data. First we create an instance of the <code>XMLHttpRequest</code> object and save it to the variable <code>rec</code>:</p>
+<pre><code class="hljs css language-javascript">req = <span class="hljs-keyword">new</span> XMLHttpRequest();
+</code></pre>
+<p>Next we use the <code>open</code> method to initialize a request. The <strong>first</strong> argument will take a &quot;GET&quot; request since we are requesting data. The <strong>second</strong> argument for the <code>open</code> method is the URL of the API we are requesting data from. The <strong>third</strong> argument is a <code>Boolean</code> value where <code>true</code> makes it an asynchronous request:</p>
+<pre><code class="hljs css language-javascript">req.open(<span class="hljs-string">'GET'</span>, <span class="hljs-string">'/json/cats.json'</span>, <span class="hljs-literal">true</span>);
+</code></pre>
+<p>Next, the <code>send</code> method sends the request:</p>
+<pre><code class="hljs css language-javascript">req.send();
+</code></pre>
+<p>And lastly the <code>onload</code> event handler parses the returned data and applies the <code>JSON.stringify</code> method to convert the JavaScript object into a string. This string is then inserted as the message text:</p>
+<pre><code class="hljs css language-javascript">req.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    json = <span class="hljs-built_in">JSON</span>.parse(req.responseText);
+    <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'message'</span>)[<span class="hljs-number">0</span>].innerHTML = <span class="hljs-built_in">JSON</span>.stringify(
+        json
+    );
+};
+</code></pre>
+<p>Create XMLHttpRequest, <code>open</code> it, <code>send</code> it, <code>onload</code> parse it.</p>
+<pre><code class="hljs css language-javascript">req = <span class="hljs-keyword">new</span> XMLHttpRequest();
+req.open(<span class="hljs-string">'GET'</span>, <span class="hljs-string">'/json/cats.json'</span>, <span class="hljs-literal">true</span>);
+req.send();
+req.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    json = <span class="hljs-built_in">JSON</span>.parse(req.responseText);
+    <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'message'</span>)[<span class="hljs-number">0</span>].innerHTML = <span class="hljs-built_in">JSON</span>.stringify(
+        json
+    );
+};
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="access-the-json-data-from-an-api-and-add-html"></a><a href="#access-the-json-data-from-an-api-and-add-html" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Access the JSON Data from an API and add HTML</h2>
+<p>After accessing the data, we can use nested <code>forEach</code> loops to interate over each piece of data and add approriate html to render to the browser:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">let</span> html = <span class="hljs-string">''</span>;
+json.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">let</span> keys = <span class="hljs-built_in">Object</span>.keys(val);
+    html += <span class="hljs-string">"&lt;div class = 'cat'&gt;"</span>;
+    html += <span class="hljs-string">"&lt;img src='"</span> + val.imageLink + <span class="hljs-string">"' "</span> + <span class="hljs-string">"alt='"</span> + val.altText + <span class="hljs-string">"'&gt;"</span>;
+    keys.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>{
+        html += <span class="hljs-string">'&lt;strong&gt;'</span> + key + <span class="hljs-string">'&lt;/strong&gt;: '</span> + val[key] + <span class="hljs-string">'&lt;br&gt;'</span>;
+    });
+    html += <span class="hljs-string">'&lt;/div&gt;&lt;br&gt;'</span>;
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="fetch"></a><a href="#fetch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fetch</h2>
+<p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global <code>fetch()</code> method that provides an easy, logical way to fetch resources asynchronously across the network.</p>
+<ul>
+<li>Has one mandatory argument, the path to the resource you want to fetch.</li>
+<li>Returns a <code>Promise</code> that resolves to the <code>Response</code> to that request.</li>
+</ul>
+<pre><code class="hljs css language-javascript">fetch(<span class="hljs-string">'http://example.com/movies.json'</span>)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+        <span class="hljs-keyword">return</span> response.json();
+    })
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">myJson</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(myJson));
+    });
+</code></pre>
+<pre><code class="hljs css language-javascript">postData(<span class="hljs-string">'http://example.com/answer'</span>, { <span class="hljs-attr">answer</span>: <span class="hljs-number">42</span> })
+    .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data))) <span class="hljs-comment">// JSON-string from `response.json()` call</span>
+    .catch(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(error));
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">postData</span>(<span class="hljs-params">url = <span class="hljs-string">''</span>, data = {}</span>) </span>{
+    <span class="hljs-comment">// Default options are marked with *</span>
+    <span class="hljs-keyword">return</span> fetch(url, {
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>, <span class="hljs-comment">// *GET, POST, PUT, DELETE, etc.</span>
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'cors'</span>, <span class="hljs-comment">// no-cors, cors, *same-origin</span>
+        <span class="hljs-attr">cache</span>: <span class="hljs-string">'no-cache'</span>, <span class="hljs-comment">// *default, no-cache, reload, force-cache, only-if-cached</span>
+        <span class="hljs-attr">credentials</span>: <span class="hljs-string">'same-origin'</span>, <span class="hljs-comment">// include, *same-origin, omit</span>
+        <span class="hljs-attr">headers</span>: {
+            <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
+            <span class="hljs-comment">// 'Content-Type': 'application/x-www-form-urlencoded',</span>
+        },
+        <span class="hljs-attr">redirect</span>: <span class="hljs-string">'follow'</span>, <span class="hljs-comment">// manual, *follow, error</span>
+        <span class="hljs-attr">referrer</span>: <span class="hljs-string">'no-referrer'</span>, <span class="hljs-comment">// no-referrer, *client</span>
+        <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(data), <span class="hljs-comment">// body data type must match "Content-Type" header</span>
+    }).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.json()); <span class="hljs-comment">// parses JSON response into native JavaScript objects</span>
+}
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/4/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/doc4"><span class="arrow-prev">← </span><span>Javascript Loops</span></a><a class="docs-next button" href="/docs/functionaljs"><span>Funcional</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#wait-for-page-to-load">Wait for page to load</a></li><li><a href="#handle-click-events">Handle Click Events</a></li><li><a href="#change-text-with-click-events">Change Text with click Events</a></li><li><a href="#get-json-with-the-javascript-xmlhttprequest-method">Get <code>JSON</code> with the JavaScript <code>XMLHttpRequest</code> Method</a></li><li><a href="#access-the-json-data-from-an-api-and-add-html">Access the JSON Data from an API and add HTML</a></li><li><a href="#fetch">fetch</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 James Ross</section></footer></div></body></html>
