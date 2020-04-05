@@ -57,9 +57,9 @@
     "links": {},
     "categories": {
       "About Me": "About Me",
-      "Javascript": "Javascript",
       "React": "React",
       "Node": "Node",
+      "Javascript": "Javascript",
       "Database Stuff": "Database Stuff",
       "Other": "Other"
     }

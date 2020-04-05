@@ -1,0 +1,783 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>State Managment · James Ross</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;i align=&quot;center&quot; class=&#x27;fab fa-react fa-spin fa-7x&#x27;&gt;&lt;/i&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="State Managment · James Ross"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="&lt;i align=&quot;center&quot; class=&#x27;fab fa-react fa-spin fa-7x&#x27;&gt;&lt;/i&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/headshot.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://kit.fontawesome.com/dfbba71e17.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">James Ross</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">About Me<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/about">About Me</a></li><li class="navListItem"><a class="navItem" href="/docs/resume">Resume</a></li><li class="navListItem"><a class="navItem" href="/docs/projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">React<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react-state">State Managment</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/node-packages">Node Packages</a></li><li class="navListItem"><a class="navItem" href="/docs/node-js">NodeJS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Javascript<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/doc4">Javascript Loops</a></li><li class="navListItem"><a class="navItem" href="/docs/ajax">AJAX</a></li><li class="navListItem"><a class="navItem" href="/docs/functionaljs">Funcional</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Other<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/d3">D3</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">State Managment</h1></header><article><div><span><p><i align="center" class='fab fa-react fa-spin fa-7x'></i></p>
+<h2><a class="anchor" aria-hidden="true" id="render-state-in-the-user-interface"></a><a href="#render-state-in-the-user-interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Render <code>state</code> in the User Interface</h2>
+<p>Anytime we return state, <code>this.state</code> needs to be wrapped in curly braces. This should render 'Jamie' in h1 tags:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'Jamie'</span>,
+        };
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.name}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<p>Another way to render <code>state</code> in a component: set a variable to contain <code>this.state.name</code> and then return the jsx with the variable. This will return same as above:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'Jamie'</span>,
+        };
+    }
+    render() {
+        <span class="hljs-keyword">const</span> name = <span class="hljs-keyword">this</span>.state.name;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{name}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="set-state-with-thissetstate"></a><a href="#set-state-with-thissetstate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Set State with</strong> <code>this.setState</code></h2>
+<p>Call <code>setState</code> method inside a component class: <code>this.setState({ key: value })</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">this</span>.setState({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Jamie'</span>,
+});
+</code></pre>
+<p>Never modify state directly, always use <code>this.setState()</code> when changes occur.</p>
+<p>The following will allow a button click to change 'Initial State' to 'Second State':</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'Initial State'</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleClick = <span class="hljs-keyword">this</span>.handleClick.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleClick() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'Second State'</span>,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClick}</span>&gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.name}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="bind-this-to-a-class-method"></a><a href="#bind-this-to-a-class-method" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bind <code>this</code> to a Class Method</h2>
+<p>This will allow a Class Method to access <code>this</code> from outside the normal scope. One way is to explicitly bind <code>this</code> in the cunstructor.</p>
+<p>The following will bind <code>this</code> to the <code>adItem()</code> method, allowing us to increment the count <code>onClick</code>:</p>
+<pre><code class="hljs css language-Javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
+      <span class="hljs-attr">itemCount</span>: <span class="hljs-number">0</span>
+    };
+    <span class="hljs-keyword">this</span>.addItem = <span class="hljs-keyword">this</span>.addItem.bind(<span class="hljs-keyword">this</span>)
+  }
+  addItem() {
+    <span class="hljs-keyword">this</span>.setState({
+      <span class="hljs-attr">itemCount</span>: <span class="hljs-keyword">this</span>.state.itemCount + <span class="hljs-number">1</span>
+    });
+  }
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.addItem}</span> &gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Current Item Count: {this.state.itemCount}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+  }
+};
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="use-state-to-toggle-an-element"></a><a href="#use-state-to-toggle-an-element" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use <code>state</code> to Toggle an Element</h2>
+<p>The following renders the text &quot;Now you see me!&quot; if the <code>visibility</code> props state is <code>true</code>. The <code>button</code> element will toggle the state on click.</p>
+<p>We can toggle the state of an element using a simple <code>if else</code> statement. This is done in the <code>toggleVisibility()</code> method below:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">visibility</span>: <span class="hljs-literal">false</span>,
+        };
+        <span class="hljs-keyword">this</span>.toggleVisibility = <span class="hljs-keyword">this</span>.toggleVisibility.bind(<span class="hljs-keyword">this</span>);
+    }
+    toggleVisibility() {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state.visibility == <span class="hljs-literal">true</span>) {
+            <span class="hljs-keyword">this</span>.setState({
+                <span class="hljs-attr">visibility</span>: <span class="hljs-literal">false</span>,
+            });
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.setState({
+                <span class="hljs-attr">visibility</span>: <span class="hljs-literal">true</span>,
+            });
+        }
+    }
+
+    render() {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state.visibility) {
+            <span class="hljs-keyword">return</span> (
+                <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.toggleVisibility}</span>&gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Now you see me!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+            );
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> (
+                <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.toggleVisibility}</span>&gt;</span>Click Me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+            );
+        }
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="a-simple-counter"></a><a href="#a-simple-counter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A Simple Counter</h2>
+<p>An exemple that renders three buttons, each changing the state of <code>count</code>:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,
+        };
+        <span class="hljs-keyword">this</span>.increment = <span class="hljs-keyword">this</span>.increment.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.decrement = <span class="hljs-keyword">this</span>.decrement.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.reset = <span class="hljs-keyword">this</span>.reset.bind(<span class="hljs-keyword">this</span>);
+    }
+
+    increment() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">count</span>: <span class="hljs-keyword">this</span>.state.count + <span class="hljs-number">1</span>,
+        });
+    }
+
+    decrement() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">count</span>: <span class="hljs-keyword">this</span>.state.count - <span class="hljs-number">1</span>,
+        });
+    }
+
+    reset() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,
+        });
+    }
+
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">'inc'</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.increment}</span>&gt;</span>
+                    Increment!
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">'dec'</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.decrement}</span>&gt;</span>
+                    Decrement!
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">className</span>=<span class="hljs-string">'reset'</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.reset}</span>&gt;</span>
+                    Reset
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Current Count: {this.state.count}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="create-a-controlled-input"></a><a href="#create-a-controlled-input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Controlled Input</h2>
+<p>When a user adds text to an <code>input</code> we can treat it as part of the <code>state</code>. Using the <code>value</code> and <code>onChange</code> properties of the <code>input</code> html element, we can send it to <code>this.state.input</code> and display it in real time.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControlledInput</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">input</span>: <span class="hljs-string">''</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleChange = <span class="hljs-keyword">this</span>.handleChange.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleChange(event) {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">input</span>: event.target.value,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.input}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Controlled Input:<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{this.state.input}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="create-a-controlled-form"></a><a href="#create-a-controlled-form" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Controlled Form</h2>
+<p>We can also create a form with <code>&lt;button type='submit'&gt;</code> to update and render the <code>state</code> when clicked. This form will clear the input <code>state</code> and display it's previous state below.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyForm</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">input</span>: <span class="hljs-string">''</span>,
+            <span class="hljs-attr">submit</span>: <span class="hljs-string">''</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleChange = <span class="hljs-keyword">this</span>.handleChange.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.handleSubmit = <span class="hljs-keyword">this</span>.handleSubmit.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleChange(event) {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">input</span>: event.target.value,
+        });
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">input</span>: <span class="hljs-string">''</span>,
+            <span class="hljs-attr">submit</span>: <span class="hljs-keyword">this</span>.state.input,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">{this.handleSubmit}</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.input}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'submit'</span>&gt;</span>Submit!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.submit}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="pass-state-as-props-to-child-components"></a><a href="#pass-state-as-props-to-child-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pass <code>state</code> as <code>props</code> to Child Components</h2>
+<p><code>state</code> flows in one direction down the tree of components, from the parents <code>state</code> to child components as <code>props</code>. The child should only receive the <code>state</code> data that is required. Complicated stateful apps can be broken down into only a few, or sometimes just a single stateful component. All the other components simply use <code>props</code> received from a parents <code>state</code>.</p>
+<p>In the following example, our parent component, <code>My App</code>, sets the <code>state</code> to <code>name: 'Jamie'</code> and passes it to the child component, <code>Navbar</code>, as a prop.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'Jamie'</span>,
+        };
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Navbar</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{this.state.name}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<pre><code class="hljs css language-Javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Navbar</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+  }
+  render() {
+    <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, my name is: {this.props.name}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+  }
+};
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="pass-a-callback-as-props"></a><a href="#pass-a-callback-as-props" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Pass a Callback as <code>props</code></strong></h2>
+<p>Just like <code>state</code>, you can pass functions and methods to child child components. This allows child components to interact with their parents.</p>
+<p>This example has three components. The <code>MyApp</code> component is the parent component and will pass it's <code>state</code> as <code>props</code> to the <code>GetInput</code> and <code>RenderInput</code>.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">inputValue</span>: <span class="hljs-string">''</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleChange = <span class="hljs-keyword">this</span>.handleChange.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleChange(event) {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">inputValue</span>: event.target.value,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                {/* change code below this line */}
+                <span class="hljs-tag">&lt;<span class="hljs-name">GetInput</span>
+                    <span class="hljs-attr">input</span>=<span class="hljs-string">{this.state.inputValue}</span>
+                    <span class="hljs-attr">handleChange</span>=<span class="hljs-string">{this.handleChange}</span>
+                /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">RenderInput</span> <span class="hljs-attr">input</span>=<span class="hljs-string">{this.state.inputValue}</span> /&gt;</span>
+                {/* change code above this line */}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GetInput</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Get Input:<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.props.input}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.props.handleChange}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RenderInput</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Input Render:<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{this.props.input}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="lifecycle-methods"></a><a href="#lifecycle-methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lifecycle Methods</h2>
+<p><code>componentWillMount()</code> method is called before <code>render()</code>.</p>
+<p><code>componentDidMount()</code> method is often used to place API calls. It's called after a component is mounted to the DOM. Any calls to <code>setState()</code> within this method will trigger a re-render of the component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once you receive the data.</p>
+<p><code>componentWillReceiveProps()</code> is called whenever a component is receiving new props. It usually receives the new props as <code>nextProps</code> You can perform functions on these props before the component updates.</p>
+<p><code>shouldComponentUpdate()</code> take <code>nextProps</code> and <code>nextState</code> as parameters and and allows us to declare specifically if the component should update or not. It's very useful for optimizing performance.</p>
+<p><code>componentWillUpdate()</code></p>
+<p><code>componentDidUpdate()</code> is called immediately after the component re-renders.</p>
+<p><code>componentWillUnmount()</code></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="event-listeners"></a><a href="#event-listeners" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Listeners</h2>
+<p><code>componentDidMount</code> is the best place to attach event listeners. If you want to attach an event listener directly to the DOM, you have to do it directly. In this example we use <code>document.addEventListener(method, callback)</code> in the <code>componentDidMount()</code> Method, and <code>document.removeEventListener()</code> in the <code>componentWillUnmount()</code> method.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">message</span>: <span class="hljs-string">''</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleEnter = <span class="hljs-keyword">this</span>.handleEnter.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.handleKeyPress = <span class="hljs-keyword">this</span>.handleKeyPress.bind(<span class="hljs-keyword">this</span>);
+    }
+    componentDidMount() {
+        <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'keydown'</span>, <span class="hljs-keyword">this</span>.handleKeyPress);
+    }
+    componentWillUnmount() {
+        <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'keydown'</span>, <span class="hljs-keyword">this</span>.handleKeyPress);
+    }
+    handleEnter() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">message</span>: <span class="hljs-keyword">this</span>.state.message + <span class="hljs-string">'You pressed the enter key! '</span>,
+        });
+    }
+    handleKeyPress(event) {
+        <span class="hljs-keyword">if</span> (event.keyCode === <span class="hljs-number">13</span>) {
+            <span class="hljs-keyword">this</span>.handleEnter();
+        }
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.message}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="manage-updates-with-lifecycle-methods"></a><a href="#manage-updates-with-lifecycle-methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manage Updates with Lifecycle Methods</h2>
+<p><code>componentWillReceiveProps()</code> is called whenever a component is receiving new props. It usually receives the new props as <code>nextProps</code> You can perform functions on these props before the component updates.</p>
+<p><code>componentDidUpdate()</code> is called immediately after the component re-renders.</p>
+<p>Rendering and mounting are not the same thing. When a page loads, all components are mounted. After that, they are rendered.</p>
+<p>The following example will log <code>componentWillReceiveProps()</code> first, followed by <code>componentWillUpdate()</code>, and finally <code>componentDidUpdate()</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dialog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    componentWillUpdate() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component is about to update...'</span>);
+    }
+    componentWillReceiveProps(nextProps) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.props, nextProps);
+    }
+    componentDidUpdate() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component has updated.'</span>);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.props.message}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Controller</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">message</span>: <span class="hljs-string">'First Message'</span>,
+        };
+        <span class="hljs-keyword">this</span>.changeMessage = <span class="hljs-keyword">this</span>.changeMessage.bind(<span class="hljs-keyword">this</span>);
+    }
+    changeMessage() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">message</span>: <span class="hljs-string">'Second Message'</span>,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.changeMessage}</span>&gt;</span>Update<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> <span class="hljs-attr">message</span>=<span class="hljs-string">{this.state.message}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="optimize-re-renders-with-shouldcomponentupdate"></a><a href="#optimize-re-renders-with-shouldcomponentupdate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimize Re-Renders with <code>shouldComponentUpdate()</code></h2>
+<p><code>shouldComponentUpdate()</code> take <code>nextProps</code> and <code>nextState</code> as parameters and and allows us to declare specifically if the component should update or not. It's very useful for optimizing performance. The most common use is to compare whether <code>nextProps</code> are different from <code>this.props</code>, if they're the same, we can stop the component from re-rendering.</p>
+<p>This example uses an incrementing counter. The <code>shouldComponentUpdate()</code> method prevents the component from re-rendering if the current value is odd.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OnlyEvens</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Should I update?'</span>);
+        <span class="hljs-built_in">console</span>.log(nextProps.value);
+        <span class="hljs-keyword">if</span> (nextProps.value % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Receiving new props...'</span>);
+    }
+    componentDidUpdate() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component re-rendered.'</span>);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.props.value}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Controller</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">value</span>: <span class="hljs-number">0</span>,
+        };
+        <span class="hljs-keyword">this</span>.addValue = <span class="hljs-keyword">this</span>.addValue.bind(<span class="hljs-keyword">this</span>);
+    }
+    addValue() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">value</span>: <span class="hljs-keyword">this</span>.state.value + <span class="hljs-number">1</span>,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.addValue}</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">OnlyEvens</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.value}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="using--for-more-concise-conditional"></a><a href="#using--for-more-concise-conditional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using <code>&amp;&amp;</code> for more Concise Conditional</h2>
+<p>The if/else statements worked in the last challenge, but there's a more concise way to achieve the same result. Imagine that you are tracking several conditions in a component and you want different elements to render depending on each of these conditions. If you write a lot of <code>else if</code> statements to return slightly different UIs, you may repeat code which leaves room for error. Instead, you can use the <code>&amp;&amp;</code> logical operator to perform conditional logic in a more concise way. This is possible because you want to check if a condition is true, and if it is, return some markup.</p>
+<p>Example:</p>
+<p><code>{condition &amp;&amp; &lt;p&gt;markup&lt;/p&gt;}</code></p>
+<p>If the condition is <code>true</code>, markup will be returned. Otherwise it will return nothing.</p>
+<p>Previous example, using <code>&amp;&amp;</code> instead of the <code>if else</code> statement:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">display</span>: <span class="hljs-literal">true</span>,
+        };
+        <span class="hljs-keyword">this</span>.toggleDisplay = <span class="hljs-keyword">this</span>.toggleDisplay.bind(<span class="hljs-keyword">this</span>);
+    }
+    toggleDisplay() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">display</span>: !<span class="hljs-keyword">this</span>.state.display,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.toggleDisplay}</span>&gt;</span>Toggle Display<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                {this.state.display &amp;&amp; <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Displayed!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="ternary-expression-for-conditional-rendering"></a><a href="#ternary-expression-for-conditional-rendering" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ternary Expression for Conditional Rendering</h2>
+<p>Unlike <code>if/else</code> statements, ternary espressions can be used <em>inside</em> a <code>return</code> statement.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> inputStyle = {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">235</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-number">5</span>,
+};
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheckUserAge</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">input</span>: <span class="hljs-string">''</span>,
+            <span class="hljs-attr">userAge</span>: <span class="hljs-string">''</span>,
+        };
+        <span class="hljs-keyword">this</span>.submit = <span class="hljs-keyword">this</span>.submit.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.handleChange = <span class="hljs-keyword">this</span>.handleChange.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleChange(e) {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">input</span>: e.target.value,
+            <span class="hljs-attr">userAge</span>: <span class="hljs-string">''</span>,
+        });
+    }
+    submit() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">userAge</span>: <span class="hljs-keyword">this</span>.state.input,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">const</span> buttonOne = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.submit}</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>;
+        <span class="hljs-keyword">const</span> buttonTwo = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>You May Enter<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>;
+        <span class="hljs-keyword">const</span> buttonThree = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>You Shall Not Pass<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Enter Your Age to Continue<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{inputStyle}</span>
+                    <span class="hljs-attr">type</span>=<span class="hljs-string">'number'</span>
+                    <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.input}</span>
+                    <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span>
+                /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+                {this.state.userAge &gt; 17
+                    ? buttonTwo
+                    : this.state.userAge == ''
+                    ? buttonOne
+                    : buttonThree}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="render-conditionally-from-props"></a><a href="#render-conditionally-from-props" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Render Conditionally from Props</h2>
+<p>It's very common to use props to conditionally render code by using the value of a prop to decide what is rendered. The following is a simple game that renders either &quot;You win!&quot; or &quot;You lose!&quot;, each with a 50% chance.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Results</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.props.fiftyFifty}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameOfChance</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">counter</span>: <span class="hljs-number">1</span>,
+        };
+        <span class="hljs-keyword">this</span>.handleClick = <span class="hljs-keyword">this</span>.handleClick.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleClick() {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">counter</span>: <span class="hljs-keyword">this</span>.state.counter + <span class="hljs-number">1</span>,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">let</span> expression = <span class="hljs-built_in">Math</span>.random() &gt; <span class="hljs-number">0.5</span>;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClick}</span>&gt;</span>Play Again<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                {expression == 1 ? (
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Results</span> <span class="hljs-attr">fiftyFifty</span>=<span class="hljs-string">'You win!'</span> /&gt;</span>
+                ) : (
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Results</span> <span class="hljs-attr">fiftyFifty</span>=<span class="hljs-string">'You lose!'</span> /&gt;</span>
+                )}
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{'Turn: ' + this.state.counter}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="use-arraymap-to-dynamically-render-elements"></a><a href="#use-arraymap-to-dynamically-render-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use <code>Array.map()</code> to Dynamically Render Elements</h2>
+<p>We can use the <code>map()</code> method to render an unknown number of elements.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-keyword">const</span> items = <span class="hljs-keyword">this</span>.state.toDoList.map(<span class="hljs-function">(<span class="hljs-params">i</span>) =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{i}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>);
+</code></pre>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> textAreaStyles = {
+    <span class="hljs-attr">width</span>: <span class="hljs-number">235</span>,
+    <span class="hljs-attr">margin</span>: <span class="hljs-number">5</span>,
+};
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyToDoList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">userInput</span>: <span class="hljs-string">''</span>,
+            <span class="hljs-attr">toDoList</span>: [],
+        };
+        <span class="hljs-keyword">this</span>.handleSubmit = <span class="hljs-keyword">this</span>.handleSubmit.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.handleChange = <span class="hljs-keyword">this</span>.handleChange.bind(<span class="hljs-keyword">this</span>);
+    }
+    handleSubmit() {
+        <span class="hljs-keyword">const</span> itemsArray = <span class="hljs-keyword">this</span>.state.userInput.split(<span class="hljs-string">','</span>);
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">toDoList</span>: itemsArray,
+        });
+    }
+    handleChange(e) {
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">userInput</span>: e.target.value,
+        });
+    }
+    render() {
+        <span class="hljs-keyword">const</span> items = <span class="hljs-keyword">this</span>.state.toDoList.map(<span class="hljs-function">(<span class="hljs-params">i</span>) =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{i}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>);
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span>
+                    <span class="hljs-attr">onChange</span>=<span class="hljs-string">{this.handleChange}</span>
+                    <span class="hljs-attr">value</span>=<span class="hljs-string">{this.state.userInput}</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{textAreaStyles}</span>
+                    <span class="hljs-attr">placeholder</span>=<span class="hljs-string">'Separate Items With Commas'</span>
+                /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleSubmit}</span>&gt;</span>Create List<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My "To Do" List:<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>{items}<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="use-filter-to-dynamically-render-elements"></a><a href="#use-filter-to-dynamically-render-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use <code>filter()</code> to Dynamically Render Elements</h2>
+<p>The <code>filter()</code> method can be used to dynamically filter arrays before mapping over them.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">users</span>: [
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Jeff'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>,
+                },
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Alan'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">false</span>,
+                },
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Mary'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>,
+                },
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Jim'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">false</span>,
+                },
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Sara'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>,
+                },
+                {
+                    <span class="hljs-attr">username</span>: <span class="hljs-string">'Laura'</span>,
+                    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>,
+                },
+            ],
+        };
+    }
+    render() {
+        <span class="hljs-keyword">const</span> usersOnline = <span class="hljs-keyword">this</span>.state.users.filter(<span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> user.online);
+        <span class="hljs-keyword">const</span> renderOnline = usersOnline.map(<span class="hljs-function">(<span class="hljs-params">i</span>) =&gt;</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{i.user</span> + <span class="hljs-attr">1</span>}&gt;</span>{i.username}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
+        ));
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Current Online Users:<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>{renderOnline}<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="render-react-on-the-server-with-rendertostring"></a><a href="#render-react-on-the-server-with-rendertostring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Render React on the Server with <code>renderToString</code></h2>
+<p>Since React is a JavaScript view library and you can run JavaScript on the server with Node, this is possible. In fact, React provides a <code>renderToString()</code> method you can use for this purpose.
+<code>ReactDOMServer</code> takes one argument, a React element.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+    }
+    render() {
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> /&gt;</span></span>;
+    }
+}
+ReactDOMServer.renderToString(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>);
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/projects"><span class="arrow-prev">← </span><span>Projects</span></a><a class="docs-next button" href="/docs/node-js"><span class="function-name-prevnext">NodeJS</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#render-state-in-the-user-interface">Render <code>state</code> in the User Interface</a></li><li><a href="#set-state-with-thissetstate"><strong>Set State with</strong> <code>this.setState</code></a></li><li><a href="#bind-this-to-a-class-method">Bind <code>this</code> to a Class Method</a></li><li><a href="#use-state-to-toggle-an-element">Use <code>state</code> to Toggle an Element</a></li><li><a href="#a-simple-counter">A Simple Counter</a></li><li><a href="#create-a-controlled-input">Create a Controlled Input</a></li><li><a href="#create-a-controlled-form">Create a Controlled Form</a></li><li><a href="#pass-state-as-props-to-child-components">Pass <code>state</code> as <code>props</code> to Child Components</a></li><li><a href="#pass-a-callback-as-props"><strong>Pass a Callback as <code>props</code></strong></a></li><li><a href="#lifecycle-methods">Lifecycle Methods</a></li><li><a href="#event-listeners">Event Listeners</a></li><li><a href="#manage-updates-with-lifecycle-methods">Manage Updates with Lifecycle Methods</a></li><li><a href="#optimize-re-renders-with-shouldcomponentupdate">Optimize Re-Renders with <code>shouldComponentUpdate()</code></a></li><li><a href="#using--for-more-concise-conditional">Using <code>&amp;&amp;</code> for more Concise Conditional</a></li><li><a href="#ternary-expression-for-conditional-rendering">Ternary Expression for Conditional Rendering</a></li><li><a href="#render-conditionally-from-props">Render Conditionally from Props</a></li><li><a href="#use-arraymap-to-dynamically-render-elements">Use <code>Array.map()</code> to Dynamically Render Elements</a></li><li><a href="#use-filter-to-dynamically-render-elements">Use <code>filter()</code> to Dynamically Render Elements</a></li><li><a href="#render-react-on-the-server-with-rendertostring">Render React on the Server with <code>renderToString</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 James Ross</section></footer></div></body></html>

@@ -1,9 +1,9 @@
 {
 	"docs": {
 		"About Me": ["about", "resume", "projects"],
-		"Javascript": ["doc4", "ajax", "functionaljs"],
 		"React": ["react-state", "node-js", "node-packages"],
 		"Node": ["node-packages", "node-js"],
+		"Javascript": ["doc4", "ajax", "functionaljs"],
 		"Database Stuff": [],
 		"Other": ["d3", "Docusaurus", "Markdown", "Git and Github", "VS Code"]
 	}
