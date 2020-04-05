@@ -47,17 +47,14 @@
       "projects": {
         "title": "Projects"
       },
-      "react": {
-        "title": "React"
+      "react-state": {
+        "title": "State Managment"
       },
       "resume": {
         "title": "Resume"
       }
     },
-    "links": {
-      "About Me": "About Me",
-      "Blog": "Blog"
-    },
+    "links": {},
     "categories": {
       "About Me": "About Me",
       "Javascript": "Javascript",
