@@ -65,8 +65,8 @@ class HomeSplash extends React.Component {
 
 					<PromoSection>
 						<i className='fab fa-react fa-3x fa-spin' />
-						<i className='fab fa-js fa-3x' />
 						<i className='fab fa-node fa-3x' />
+						<i className='fab fa-js fa-3x' />
 					</PromoSection>
 					<h3>
 						<a className='button' href='docs/about'>
