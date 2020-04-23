@@ -12,6 +12,7 @@ title: Funcional
 ### `Immutability`
 
 - In functional programming, variables are not able to be changed. `const` is used much more often. We don't _assign_, we _define_.
+
 - Programs often start off with an immutable set of data as a single source of truth, and then we use functions to combine this data piece by piece and transform it into useful information.
 
 ### `Separating Functions and Data`
