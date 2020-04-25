@@ -45,13 +45,13 @@ class HomeSplash extends React.Component {
 			</div>
 		);
 
-		const Button = (props) => (
-			<div className='pluginWrapper buttonWrapper'>
-				<a className='button' href={props.href} target={props.target}>
-					{props.children}
-				</a>
-			</div>
-		);
+		// const Button = (props) => (
+		// 	<div className='pluginWrapper buttonWrapper'>
+		// 		<a className='button' href={props.href} target={props.target}>
+		// 			{props.children}
+		// 		</a>
+		// 	</div>
+		// );
 
 		return (
 			<SplashContainer>
@@ -65,8 +65,8 @@ class HomeSplash extends React.Component {
 
 					<PromoSection>
 						<i className='fab fa-react fa-3x fa-spin' />
-						<i className='fab fa-js fa-3x' />
 						<i className='fab fa-node fa-3x' />
+						<i className='fab fa-js fa-3x' />
 					</PromoSection>
 					<h3>
 						<a className='button' href='docs/about'>
