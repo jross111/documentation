@@ -28,11 +28,4 @@ Jersey City, NJ
 
 ---
 
-212890 TS123
-105517 Pragmatist
-240627 glitch
-65888 duped ===> 238104
-76670 cryptosmoker ===> 77518(ONOFF) 103417 127380 212890(TS123) 213558 214723
-77518 ONOFF ===> 85630 105517(pragmatist)
-
 ## **Past Work**
