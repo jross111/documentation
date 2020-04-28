@@ -28,3 +28,23 @@ arr.pop();
 arr;
 // ['red', 'blue']
 ```
+
+### `slice()`
+
+## Iterators
+
+Objects that define a sequence. Can return a value when complete.
+
+### `forEach()`
+
+Iterates over each element of an array.
+
+```javascript
+let nums = [1, 2, 3];
+let sum = 0;
+nums.forEach((num) => {
+	sum = sum + num;
+});
+sum;
+// sum
+```
