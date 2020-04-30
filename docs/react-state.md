@@ -50,7 +50,7 @@ class MyComponent extends React.Component {
 
 ---
 
-## **Set State with** `this.setState`
+## Set State with `this.setState`
 
 Call `setState` method inside a component class: `this.setState({ key: value })`
 
