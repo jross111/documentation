@@ -3,11 +3,48 @@ id: js-methods
 title: Methods
 ---
 
-<ul className="fa-ul">
-  <li><span classNameName="fa-li"><i classNameName="fas fa-check-square"></i></span>List icons can</li>
-  <li><span classNameName="fa-li"><i className="fas fa-check-square"></i></span>be used to</li>
-  <li><span className="fa-li"><i className="fas fa-spinner fa-pulse"></i></span>replace bullets</li>
-  <li><span className="fa-li"><i className="far fa-square"></i></span>in lists</li>
-</ul>
+## Arrays
 
-## hi
+### `push()`
+
+Adds new element to the end of an array, returns length of modified array.
+
+```javascript
+let arr = ['red', 'blue', 'green'];
+arr.push('black');
+// 4
+arr;
+// ['red', 'blue', 'green', black]
+```
+
+### `pop()`
+
+Removes last element of an array, returns the element that was removed.
+
+```javascript
+let arr = ['red', 'blue', 'green'];
+arr.pop();
+// 'green'
+arr;
+// ['red', 'blue']
+```
+
+### `slice()`
+
+## Iterators
+
+Objects that define a sequence. Can return a value when complete.
+
+### `forEach()`
+
+Iterates over each element of an array.
+
+```javascript
+let nums = [1, 2, 3];
+let sum = 0;
+nums.forEach((num) => {
+	sum = sum + num;
+});
+sum;
+// sum
+```

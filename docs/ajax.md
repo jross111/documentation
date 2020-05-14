@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 JSON transmitted by APIs are sent as `bytes`, and your application receives it as a `string`. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The `JSON.parse` method parses the string and constructs the JavaScript object described by it.
 
-The JavaScript `XMLHttpRequest` object has a number of properties and methods that are used to transfer data. First we create an instance of the `XMLHttpRequest` object and save it to the variable `rec`:
+The JavaScript `XMLHttpRequest` object has a number of properties or methods that are used to transfer data. First we create an instance of the `XMLHttpRequest` object and save it to the variable `rec`:
 
 ```javascript
 req = new XMLHttpRequest();
